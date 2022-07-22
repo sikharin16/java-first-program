@@ -12,11 +12,11 @@ public class App
     }
 
     public static int doubleTheNumber(int number) {
-        return number*2;
+        return 2 * number;
     }
-    public static int add(int[] number){
+    public static int add(int[] numbers){
         int sum = 0;
-        for(int item : number) {
+        for(int item : numbers) {
             sum+=item;
         }
         return  sum;

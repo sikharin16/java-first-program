@@ -4,6 +4,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class BestLoanRates {
+    public static final Map<Integer, Float> bestRates = Map.of(1, 5.50f, 2, 3.45f, 3, 2.67f);
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your name");
@@ -15,17 +17,17 @@ public class BestLoanRates {
         if(bestRate ==0.0f){
             System.out.println("No available rates for term: " + loanTermInYears + " years");
         }else{
-            System.out.println("Best Available Rate: " + getRates(loanTermInYears) + "%");
+            System.out.println("Best Available Rate: " + bestRate + "%");
         }
         sc.close();
 
 
     }
-    public static final Map<Integer, Float> bestRates = Map.of(1, 5.50f, 2, 3.45f, 3, 2.67f);
+
 
     public static float getRates(int loanTermInYears ){
         if(bestRates.containsKey(loanTermInYears)){
-            return  loanTermInYears;
+            return  bestRates.get(loanTermInYears);
         }
         return 0.0f;
     }
