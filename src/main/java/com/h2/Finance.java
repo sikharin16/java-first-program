@@ -5,11 +5,11 @@ import java.util.Map;
 
 
 public class Finance {
-    public final static String BEST_LOAN_RATES  = "bestLoanRates";
-    public final static String SAVINGS_CALCULATOR   = "savingsCalculator";
-    public final static String MORTGAGE_CALCULATOR  = "mortgageCalculator";
+    public static final  String BEST_LOAN_RATES  = "bestLoanRates";
+    public static final  String SAVINGS_CALCULATOR   = "savingsCalculator";
+    public static final  String MORTGAGE_CALCULATOR  = "mortgageCalculator";
 
-    public final  static Map<String, String> commandsToUsage = Map.of(
+    public static final   Map<String, String> commandsToUsage = Map.of(
             BEST_LOAN_RATES, "usage: bestLoanRates",
             SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",
             MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>"
@@ -23,10 +23,8 @@ public class Finance {
                 return args.length == 3;
             case MORTGAGE_CALCULATOR:
                 return args.length == 4;
-            default:
-                return  false;
         }
-
+        return false;
     }
     private static  void  executeCommand(String command ,String[] arguments ){
         switch (command){
@@ -54,7 +52,7 @@ public class Finance {
         }
         boolean isValidCommand = validateCommandArguments(args);
         if(!isValidCommand){
-            commandsToUsage.get(args[0]);
+            System.out.println(commandsToUsage.get(args[0]));
             return;
         }
         executeCommand(command, Arrays.copyOfRange(args,1,args.length));
